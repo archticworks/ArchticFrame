@@ -1,0 +1,17 @@
+.archticframe-notice {
+	padding: 100px 0;
+}
+
+.archticframe-notice .archticframe-container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.archticframe-content-wrap > * {
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.archticframe-notice-title {
+    margin-bottom: 16px;
+}
