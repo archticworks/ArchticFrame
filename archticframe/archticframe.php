@@ -3,7 +3,7 @@
  * Plugin Name: ArchticFrame
  * Description: Assign archive posts to custom post types and load Archtic templates.
  * Version: 1.0.0
- * Author: Archtic Works
+ * Author: Archtic
  * Text Domain: archticframe
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html

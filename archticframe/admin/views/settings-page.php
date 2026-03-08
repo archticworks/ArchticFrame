@@ -1,11 +1,16 @@
 <?php
+/**
+ * Admin settings page view for ArchticFrame.
+ *
+ * @package ArchticFrame
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$post_types = archticframe_get_eligible_post_types();
-$settings   = archticframe_get_archive_settings();
+$archticframe_post_types = archticframe_get_eligible_post_types();
+$archticframe_settings   = archticframe_get_archive_settings();
 ?>
 
 <div class="wrap">
@@ -15,7 +20,7 @@ $settings   = archticframe_get_archive_settings();
 		<?php esc_html_e( 'Enable ArchticFrame archive management for supported custom post types. When enabled, ArchticFrame will create and manage a dedicated archive source post automatically.', 'archticframe' ); ?>
 	</p>
 
-	<?php if ( empty( $post_types ) ) : ?>
+	<?php if ( empty( $archticframe_post_types ) ) : ?>
 		<div class="notice notice-warning inline">
 			<p><?php esc_html_e( 'No eligible public custom post types were found.', 'archticframe' ); ?></p>
 		</div>
@@ -26,41 +31,41 @@ $settings   = archticframe_get_archive_settings();
 
 			<table class="form-table" role="presentation">
 				<tbody>
-					<?php foreach ( $post_types as $post_type => $object ) : ?>
+					<?php foreach ( $archticframe_post_types as $archticframe_post_type => $archticframe_object ) : ?>
 						<?php
-						$has_archive = ! empty( $object->has_archive );
-						$is_enabled  = ! empty( $settings[ $post_type ]['enabled'] );
-						$post_id     = ! empty( $settings[ $post_type ]['post_id'] ) ? absint( $settings[ $post_type ]['post_id'] ) : 0;
-						$edit_link   = $post_id ? get_edit_post_link( $post_id, '' ) : '';
-						$post_label  = ! empty( $object->labels->name ) ? $object->labels->name : $post_type;
+						$archticframe_has_archive = ! empty( $archticframe_object->has_archive );
+						$archticframe_is_enabled  = ! empty( $archticframe_settings[ $archticframe_post_type ]['enabled'] );
+						$archticframe_post_id     = $archticframe_is_enabled ? archticframe_get_archive_id( $archticframe_post_type ) : 0;
+						$archticframe_edit_link   = $archticframe_post_id ? get_edit_post_link( $archticframe_post_id, '' ) : '';
+						$archticframe_post_label  = ! empty( $archticframe_object->labels->name ) ? $archticframe_object->labels->name : $archticframe_post_type;
 						?>
 						<tr>
 							<th scope="row">
-								<label for="archticframe-<?php echo esc_attr( $post_type ); ?>">
-									<?php echo esc_html( $post_label ); ?>
+								<label for="archticframe-<?php echo esc_attr( $archticframe_post_type ); ?>">
+									<?php echo esc_html( $archticframe_post_label ); ?>
 								</label>
 							</th>
 							<td>
-								<label for="archticframe-<?php echo esc_attr( $post_type ); ?>">
+								<label for="archticframe-<?php echo esc_attr( $archticframe_post_type ); ?>">
 									<input
 										type="checkbox"
-										name="archticframe_archives[<?php echo esc_attr( $post_type ); ?>]"
-										id="archticframe-<?php echo esc_attr( $post_type ); ?>"
+										name="archticframe_archives[<?php echo esc_attr( $archticframe_post_type ); ?>]"
+										id="archticframe-<?php echo esc_attr( $archticframe_post_type ); ?>"
 										value="1"
-										<?php checked( $is_enabled ); ?>
-										<?php disabled( ! $has_archive ); ?>
+										<?php checked( $archticframe_is_enabled ); ?>
+										<?php disabled( ! $archticframe_has_archive ); ?>
 									/>
 									<?php esc_html_e( 'Enable archive management', 'archticframe' ); ?>
 								</label>
 
-								<?php if ( $has_archive ) : ?>
+								<?php if ( $archticframe_has_archive ) : ?>
 									<p class="description">
 										<?php esc_html_e( 'Archive support is enabled for this post type.', 'archticframe' ); ?>
 									</p>
 
-									<?php if ( $is_enabled && $post_id && $edit_link ) : ?>
+									<?php if ( $archticframe_is_enabled && $archticframe_post_id && $archticframe_edit_link ) : ?>
 										<p class="description">
-											<a href="<?php echo esc_url( $edit_link ); ?>">
+											<a href="<?php echo esc_url( $archticframe_edit_link ); ?>">
 												<?php esc_html_e( 'Edit archive post', 'archticframe' ); ?>
 											</a>
 										</p>

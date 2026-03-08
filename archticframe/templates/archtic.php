@@ -5,6 +5,8 @@
  * This template is used when the active theme does not provide:
  * - archtic-{post_type}.php
  * - archtic.php
+ *
+ * @package ArchticFrame
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,18 +15,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
-$post_type        = archticframe_get_current_archive_post_type();
-$archive_post     = $post_type ? archticframe_get_archive_post( $post_type ) : null;
-$archive_content  = $post_type ? archticframe_get_archive_content( $post_type, true ) : '';
-$is_editor        = current_user_can( 'edit_posts' );
+$archticframe_post_type       = archticframe_get_current_archive_post_type();
+$archticframe_archive_post    = $archticframe_post_type ? archticframe_get_archive_post( $archticframe_post_type ) : null;
+$archticframe_archive_content = $archticframe_post_type ? archticframe_get_archive_content( $archticframe_post_type, true ) : '';
+$archticframe_is_editor       = current_user_can( 'edit_posts' );
 ?>
 
 <div class="main archticframe-archive-fallback">
-	<?php if ( ! empty( $archive_content ) ) : ?>
+	<?php if ( ! empty( $archticframe_archive_content ) ) : ?>
 
-		<?php echo $archive_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php echo $archticframe_archive_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
-	<?php elseif ( $is_editor ) : ?>
+	<?php elseif ( $archticframe_is_editor ) : ?>
 
 		<section class="archticframe-notice">
 			<div class="archticframe-container">
@@ -33,7 +35,7 @@ $is_editor        = current_user_can( 'edit_posts' );
 						<?php esc_html_e( 'ArchticFrame', 'archticframe' ); ?>
 					</h1>
 
-					<?php if ( ! $archive_post ) : ?>
+					<?php if ( ! $archticframe_archive_post ) : ?>
 						<p>
 							<?php esc_html_e( 'No managed archive post is currently assigned for this post type. Go to Settings → ArchticFrame to enable archive management.', 'archticframe' ); ?>
 						</p>
