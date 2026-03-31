@@ -8,7 +8,7 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-ArchticFrame adds editable archive pages to custom post types, allowing archive layouts to be built using Gutenberg blocks or Advanced Custom Fields instead of editing theme templates.
+Build editable archive pages for custom post types using Gutenberg blocks or ACF instead of editing theme templates.
 
 == Description ==
 

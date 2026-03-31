@@ -284,7 +284,7 @@ function archticframe_create_archive_post( $post_type ) {
 	$title = sprintf(
 		/* translators: %s: post type singular label. */
 		__( '%s Archive', 'archticframe' ),
-		$label
+		esc_html( $label )
 	);
 
 	$post_id = wp_insert_post(
@@ -368,7 +368,7 @@ function archticframe_get_archive_content( $post_type = '', $apply_content_filte
  * @return void
  */
 function archticframe_archive_content( $post_type = '', $apply_content_filters = true ) {
-	echo archticframe_get_archive_content( $post_type, $apply_content_filters ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo wp_kses_post( archticframe_get_archive_content( $post_type, $apply_content_filters ) );
 }
 
 /**
@@ -440,8 +440,8 @@ function archticframe_get_archive_title( $post_type = '' ) {
  * @param string $post_type Optional post type slug.
  * @return void
  */
-if ( ! function_exists( 'archtic_content' ) ) {
-	function archtic_content( $post_type = '' ) {
+if ( ! function_exists( 'archticframe_content' ) ) {
+	function archticframe_content( $post_type = '' ) {
 		archticframe_archive_content( $post_type, true );
 	}
 }
@@ -452,8 +452,8 @@ if ( ! function_exists( 'archtic_content' ) ) {
  * @param string $post_type Optional post type slug.
  * @return int
  */
-if ( ! function_exists( 'archtic_id' ) ) {
-	function archtic_id( $post_type = '' ) {
+if ( ! function_exists( 'archticframe_id' ) ) {
+	function archticframe_id( $post_type = '' ) {
 		return archticframe_archive_id( $post_type );
 	}
 }
@@ -465,8 +465,8 @@ if ( ! function_exists( 'archtic_id' ) ) {
  * @param string $post_type Optional post type slug.
  * @return mixed|null
  */
-if ( ! function_exists( 'archtic_field' ) ) {
-	function archtic_field( $field, $post_type = '' ) {
+if ( ! function_exists( 'archticframe_field' ) ) {
+	function archticframe_field( $field, $post_type = '' ) {
 		return archticframe_get_archive_field( $field, $post_type );
 	}
 }
@@ -477,8 +477,8 @@ if ( ! function_exists( 'archtic_field' ) ) {
  * @param string $post_type Optional post type slug.
  * @return string
  */
-if ( ! function_exists( 'archtic_title' ) ) {
-	function archtic_title( $post_type = '' ) {
+if ( ! function_exists( 'archticframe_title' ) ) {
+	function archticframe_title( $post_type = '' ) {
 		return archticframe_get_archive_title( $post_type );
 	}
 }

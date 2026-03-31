@@ -24,7 +24,7 @@ $archticframe_is_editor       = current_user_can( 'edit_posts' );
 <div class="main archticframe-archive-fallback">
 	<?php if ( ! empty( $archticframe_archive_content ) ) : ?>
 
-		<?php echo $archticframe_archive_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php echo wp_kses_post( $archticframe_archive_content ); ?>
 
 	<?php elseif ( $archticframe_is_editor ) : ?>
 

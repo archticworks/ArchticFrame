@@ -379,16 +379,21 @@ add_action( 'admin_bar_menu', 'archticframe_add_admin_bar_view_archive_link', 80
  *
  * These objects are internal and should not present their own permalink UI.
  *
+ * @param string $hook_suffix Current admin page hook.
  * @return void
  */
-function archticframe_hide_archive_permalink_ui() {
+function archticframe_hide_archive_permalink_ui( $hook_suffix ) {
+	if ( ! in_array( $hook_suffix, array( 'post.php', 'post-new.php' ), true ) ) {
+		return;
+	}
+
 	$screen = get_current_screen();
 
 	if ( ! $screen || archticframe_archive_cpt_slug() !== $screen->post_type ) {
 		return;
 	}
-	?>
-	<style>
+
+	$css = '
 		.post-type-archticframe_archive #edit-slug-box,
 		.post-type-archticframe_archive #preview-action,
 		.post-type-archticframe_archive #view-post-btn,
@@ -398,7 +403,16 @@ function archticframe_hide_archive_permalink_ui() {
 		.post-type-archticframe_archive .edit-post-post-link {
 			display: none !important;
 		}
-	</style>
-	<?php
+	';
+
+	wp_register_style(
+		'archticframe-admin',
+		false,
+		array(),
+		defined( 'ARCHTICFRAME_VERSION' ) ? ARCHTICFRAME_VERSION : '1.0.0'
+	);
+
+	wp_enqueue_style( 'archticframe-admin' );
+	wp_add_inline_style( 'archticframe-admin', $css );
 }
-add_action( 'admin_head', 'archticframe_hide_archive_permalink_ui' );
+add_action( 'admin_enqueue_scripts', 'archticframe_hide_archive_permalink_ui' );
