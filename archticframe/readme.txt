@@ -101,25 +101,35 @@ archtic.php
 
 This allows theme developers to fully customise archive layouts while maintaining a safe fallback.
 
+== Content Sanitization ==
+
+The plugin fallback template outputs archive content using standard WordPress sanitization.
+
+This helps provide a safe default, but some custom markup may be altered or removed depending on how it is rendered. This can affect advanced custom HTML added through blocks, ACF output, or inline markup.
+
+If you need full control over archive output, you can override the fallback template using archtic.php or archtic-{post_type}.php in your theme.
+
+In cases where specific markup needs to be allowed, developers can also extend the permitted HTML using standard WordPress filters such as wp_kses_allowed_html.
+
 == Helper Functions ==
 
 ArchticFrame provides helper functions for theme developers.
 
 Output archive content:
 
-<?php archtic_content(); ?>
+<?php archticframe_content(); ?>
 
 Get the archive object ID:
 
-$post_id = archtic_id();
+$post_id = archticframe_id();
 
 Get the archive title:
 
-echo archtic_title();
+echo archticframe_title();
 
 Retrieve an ACF field from the archive:
 
-echo archtic_field('subtitle');
+echo archticframe_field('subtitle');
 
 These helpers allow themes to integrate archive content without directly querying the archive object.
 
