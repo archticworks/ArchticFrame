@@ -4,7 +4,7 @@ Tags: archive, custom post types, gutenberg, acf, archive page
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,7 +83,7 @@ Each Archive Page corresponds to a specific custom post type archive.
 
 Archive Pages include a View Archive link which opens the actual archive URL.
 
-Editors only manage the content of these pages — the archive relationships are handled automatically.
+Editors manage the content of these pages, while archive relationships are handled automatically.
 
 == Template Loading ==
 
@@ -243,6 +243,13 @@ Themes can style the archive listings using the following classes:
 - .archtic-item__actions
 - .archtic-item__button
 
+== Screenshots ==
+
+1. Enable archive management per post type in the settings screen
+2. Dedicated Archive Pages admin area for managing archive content
+3. Build archive layouts using Gutenberg blocks
+4. Display archive listings using the built-in shortcode
+
 == Installation ==
 
 1. Upload the plugin folder to /wp-content/plugins/.
@@ -274,6 +281,10 @@ Themes can provide custom templates such as archtic-{post_type}.php or archtic.p
 The corresponding Archive Page will automatically be moved to the trash.
 
 == Changelog ==
+
+= 1.1.0 =
+- Added ACF location rule support for Archive Pages
+- Minor improvements and cleanup
 
 = 1.0.0 =
 - Initial release

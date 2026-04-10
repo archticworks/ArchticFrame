@@ -25,6 +25,7 @@ class ArchticFrame_Core {
 		require_once ARCHTICFRAME_PATH . 'includes/settings.php';
 		require_once ARCHTICFRAME_PATH . 'includes/template-loader.php';
 		require_once ARCHTICFRAME_PATH . 'includes/shortcodes.php';
+		require_once ARCHTICFRAME_PATH . 'includes/acf-location-rules.php';
 
 		ArchticFrame_Settings::init();
 		ArchticFrame_Template_Loader::init();
