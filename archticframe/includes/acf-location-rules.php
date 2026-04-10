@@ -58,6 +58,10 @@ if ( class_exists( 'ACF_Location' ) && ! class_exists( 'ArchticFrame_ACF_Locatio
 			$post_types = archticframe_get_eligible_post_types();
 
 			foreach ( $post_types as $post_type => $post_type_object ) {
+				if ( ! archticframe_is_enabled_for_post_type( $post_type ) ) {
+					continue;
+				}
+
 				$label = ! empty( $post_type_object->labels->name )
 					? $post_type_object->labels->name
 					: ucfirst( $post_type );

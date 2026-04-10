@@ -4,7 +4,7 @@ Tags: archive, custom post types, gutenberg, acf, archive page
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -282,17 +282,21 @@ The corresponding Archive Page will automatically be moved to the trash.
 
 == Changelog ==
 
+= 1.1.1 =
+* Improvement: ACF "Archive Page" location rule now only shows enabled post types.
+* Fix: Prevented inactive post types appearing in ACF location rule options.
+
 = 1.1.0 =
-- Added ACF location rule support for Archive Pages
-- Minor improvements and cleanup
+* Added: ACF location rule support for Archive Pages.
+* Improved: General internal cleanup and minor refinements.
 
 = 1.0.0 =
-- Initial release
-- Archive Pages system
-- Gutenberg archive content support
-- ACF helper integration
-- Template override support
-- Helper functions for archive content
+* Initial release.
+* Added: Archive Pages system.
+* Added: Gutenberg archive content support.
+* Added: ACF helper integration.
+* Added: Template override support.
+* Added: Helper functions for archive content.
 
 == License ==
 
