@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: ArchticFrame
+ * Plugin Name: ArchticFrame - Editable Archive Pages
  * Description: Assign archive posts to custom post types and load Archtic templates.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: archtic
  * Author URI: https://profiles.wordpress.org/archtic/
  * Text Domain: archticframe
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'ARCHTICFRAME_VERSION', '1.1.1' );
+define( 'ARCHTICFRAME_VERSION', '1.1.2' );
 define( 'ARCHTICFRAME_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ARCHTICFRAME_URL', plugin_dir_url( __FILE__ ) );
 

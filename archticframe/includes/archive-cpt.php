@@ -409,7 +409,7 @@ function archticframe_hide_archive_permalink_ui( $hook_suffix ) {
 		'archticframe-admin',
 		false,
 		array(),
-		defined( 'ARCHTICFRAME_VERSION' ) ? ARCHTICFRAME_VERSION : '1.1.1'
+		defined( 'ARCHTICFRAME_VERSION' ) ? ARCHTICFRAME_VERSION : '1.1.2'
 	);
 
 	wp_enqueue_style( 'archticframe-admin' );

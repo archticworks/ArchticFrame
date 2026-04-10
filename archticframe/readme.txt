@@ -1,14 +1,14 @@
-=== ArchticFrame ===
+=== ArchticFrame - Editable Archive Pages ===
 Contributors: archtic
 Tags: archive, custom post types, gutenberg, acf, archive page
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Create editable archive pages for custom post types using Gutenberg blocks or ACF.
+Edit archive pages for custom post types using Gutenberg blocks or ACF.
 
 == Description ==
 
@@ -281,6 +281,10 @@ Themes can provide custom templates such as archtic-{post_type}.php or archtic.p
 The corresponding Archive Page will automatically be moved to the trash.
 
 == Changelog ==
+
+= 1.1.2 =
+* Updated plugin name to improve clarity and search visibility
+* Improved plugin description to better reflect functionality
 
 = 1.1.1 =
 * Improvement: ACF "Archive Page" location rule now only shows enabled post types.
